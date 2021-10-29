@@ -1,0 +1,8 @@
+  [Desktop Entry]
+  Name=Tetris Game
+  Comment=A good tetris game to enjoy anytime
+  Exec=tetris
+  Icon=${SNAP}/meta/gui/tetris.png # replace name to your app name
+  Terminal=false
+  Type=Application
+  Categories=Games; #adjust accordingly your snap category
