@@ -24,7 +24,8 @@ class _GamePainelState extends State<GamePainel> with TickerProviderStateMixin {
   void initState() {
     tetrisPice.y = 3;
     tetrisPice.x = 1;
-    _isDarkModeOn = themeController.isDarkModeOn;
+    // _isDarkModeOn = themeController.isDarkModeOn;
+    _isDarkModeOn = themeController.darkMode;
     _controller =
         AnimationController(vsync: this, duration: Duration(microseconds: 200));
     super.initState();
@@ -94,8 +95,8 @@ class _GamePainelState extends State<GamePainel> with TickerProviderStateMixin {
                           value: _isDarkModeOn,
                           onChanged: (value) {
                             _isDarkModeOn = !_isDarkModeOn;
-                            themeController.changeTheme(_isDarkModeOn);
-                            themeController.update();
+                            // themeController.changeTheme(_isDarkModeOn);
+                            themeController.toogleChangeTheme(_isDarkModeOn);
                           },
                         ),
                       ),

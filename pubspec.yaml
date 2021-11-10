@@ -42,6 +42,7 @@ dev_dependencies:
   bitsdojo_window: ^0.1.1+1
   get: ^4.3.8
   get_storage: ^2.0.3
+  shared_preferences: ^2.0.8
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

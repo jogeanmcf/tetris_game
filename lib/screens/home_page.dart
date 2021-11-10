@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:tetris/controllers/game_controler.dart';
+import 'package:tetris/controllers/theme_controler.dart';
 import 'package:tetris/screens/start_the_game.dart';
 import 'package:tetris/widgets/grid_widget.dart';
 import 'package:tetris/widgets/keyboard_handler.dart';
@@ -16,15 +17,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   GameController gameController = Get.put(GameController());
-
+  ThemeController themeController = Get.find();
   @override
   void initState() {
     super.initState();
-    new Future.delayed(Duration.zero, () {
+    Future.delayed(Duration.zero, () {
       showDialog(
           context: context,
           builder: (BuildContext context) {
-            return new StartGame();
+            return const StartGame();
           });
     });
   }
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               children: [
                 Expanded(
                     child: MoveWindow(
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     'Tetris Game',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -95,6 +96,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ],
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     print(themeController.darkMode);
+      //     themeController.toogleChangeTheme();
+      //   },
+      // ),
     );
   }
 }
