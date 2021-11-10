@@ -13,6 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+
   runApp(MyApp());
 
   doWhenWindowReady(() {

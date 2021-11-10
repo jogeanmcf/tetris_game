@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.tetris">
+=======
+    package="com.example.tetris_game">
+>>>>>>> d7b33a371d17d24aa79032ed77972d0ec6bf0509
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->

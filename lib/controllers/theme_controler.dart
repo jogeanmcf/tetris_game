@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeController extends GetxController {
   final gameData = GetStorage();
   bool _isDarkMode = false;
+
   ThemeController() {
     _loadPrefs();
   }
