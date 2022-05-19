@@ -1,5 +1,5 @@
 name: tetris
-version: 0.1.0
+version: 0.1.3
 summary: Tetris Game
 description: A good looking tetris game to enjoy anytime!
 
@@ -7,22 +7,14 @@ confinement: strict
 base: core18
 grade: stable
 
-slots:
-  dbus-tetris: # adjust accordingly to your app name
-    interface: dbus
-    bus: session
-    name: org.bar.tetris # adjust accordingly to your app name and
-    
 apps:
   tetris:
-    command: tetris
+    command: bin/tetris
     extensions: [flutter-master] # Where "master" defines which Flutter channel to use for the build
-    plugs:
-    - network
-    slots:
-      - dbus-tetris
+    plugs: [home]
+
 parts:
   tetris:
-    source: . #https://github.com/jogeanmcf/tetris_game.git
+    source: .
     plugin: flutter
     flutter-target: lib/main.dart # The main entry-point file of the application

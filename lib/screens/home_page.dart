@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
+// import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:tetris/controllers/game_controler.dart';
 import 'package:tetris/controllers/theme_controler.dart';
-import 'package:tetris/screens/start_the_game.dart';
+import 'package:tetris/global.dart';
 import 'package:tetris/widgets/grid_widget.dart';
 import 'package:tetris/widgets/keyboard_handler.dart';
 import 'package:tetris/widgets/side_panel.dart';
@@ -18,15 +18,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   GameController gameController = Get.put(GameController());
   ThemeController themeController = Get.find();
+
   @override
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return const StartGame();
-          });
+      startTheGame();
     });
   }
 
@@ -35,22 +32,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       body: Column(
         children: [
-          WindowTitleBarBox(
-            child: Row(
-              children: [
-                Expanded(
-                    child: MoveWindow(
-                  child: const Center(
-                      child: Text(
-                    'Tetris Game',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                )),
-                MinimizeWindowButton(),
-                CloseWindowButton()
-              ],
-            ),
-          ),
+          // WindowTitleBarBox(
+          //   child: Row(
+          //     children: [
+          //       Expanded(
+          //           child: MoveWindow(
+          //         child: const Center(
+          //             child: Text(
+          //           'Tetris Game',
+          //           style: TextStyle(fontWeight: FontWeight.bold),
+          //         )),
+          //       )),
+          //       MinimizeWindowButton(),
+          //       CloseWindowButton()
+          //     ],
+          //   ),
+          // ),
           Expanded(
             child: Row(
               mainAxisSize: MainAxisSize.max,

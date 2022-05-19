@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -7,19 +7,20 @@ import 'package:tetris/models/grid.dart';
 import 'package:tetris/models/tetris.dart';
 
 class GameController extends GetxController {
-  final gameData = GetStorage();
+  //TODO: mudar o local de salvamento
+  final gameData = GetStorage(r'${SNAP}'); //
   int _maxSxore = 0;
   bool isPlaying = true;
   Grid grid = Grid(width: 10, height: 13);
   Grid sideGrid = Grid(width: 5, height: 5);
   Tetris tetris = Tetris(gridWidth: 10);
 
-  int get getMaxScore => gameData.read('maxScore') ?? _maxSxore;
+  int get getMaxScore => gameData.read('maxScore') ?? _maxSxore; //
 
   late Timer timer;
 
   void setTime() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) async {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       if (grid.checkGameOver()) {
         timer.cancel();
         isPlaying = false;
@@ -30,9 +31,9 @@ class GameController extends GetxController {
         grid.checkFullBlueLine();
         if (grid.numberOfFullLines >= getMaxScore) {
           _maxSxore = grid.numberOfFullLines;
-          gameData.write('maxScore', _maxSxore);
+          gameData.write('maxScore', _maxSxore); //
         }
-        await Future.delayed(Duration(microseconds: 300));
+        await Future.delayed(const Duration(microseconds: 300));
         tetris.newPice();
       }
       tetris.y++;
@@ -48,8 +49,6 @@ class GameController extends GetxController {
   void start() {
     setTime();
   }
-
-  void saveNewRecord() {}
 
   void reset() {
     grid.clear();
